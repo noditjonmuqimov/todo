@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <form @submit.prevent="addCard">
+                <input type="text" placeholder="Malumot kiriting" v-model="text">
+                <button>Add Card</button>
+            </form>
+            <div class="box container">
+                <div class="card" v-for="(card,i) in list" :key="card.id">
+                    <h3 v-if="view">Title: {{card.name}}</h3>
+                    <input v-else type="text" value="" v-model="card.name">
+                    <button @click="delCard(i)">X</button>
+                    <button v-if="aa" @click="edit">Edit</button>
+                    <button v-else @click="save">save</button>
+
+                </div>
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+
+</html>
